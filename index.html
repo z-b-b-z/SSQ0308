@@ -3,7 +3,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>SSQ</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -701,85 +700,11 @@
         .space {
             margin-right: 150px;
         }
-
-        /* 手机端横屏适配 */
-        #rotate-tip {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #000;
-            color: #fff;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        @media screen and (max-width: 768px) {
-            body {
-                overflow: hidden;
-                background: #000;
-            }
-
-            #wrap {
-                width: 100vw;
-                height: 100vh;
-                margin-top: 0;
-            }
-
-            #canvas {
-                width: 100vw;
-                height: 100vh;
-            }
-
-            #text {
-                left: 20px;
-                top: 20px;
-                width: calc(100vw - 40px);
-                height: auto;
-            }
-
-            #clock-box {
-                left: 20px;
-                top: auto;
-                bottom: 20px;
-            }
-        }
-
-        /* 竖屏时提示用户横屏 */
-        @media screen and (orientation: portrait) and (max-width: 768px) {
-            #rotate-tip {
-                display: flex;
-            }
-
-            #main {
-                display: none;
-            }
-        }
-
-        /* 横屏时正常显示内容 */
-        @media screen and (orientation: landscape) and (max-width: 768px) {
-            #rotate-tip {
-                display: none;
-            }
-
-            #main {
-                display: block;
-            }
-        }
     </style>
 
 </head>
 
 <body>
-    <div id="rotate-tip">为了更好的效果，请把手机横过来观看~</div>
     <div id="main">
         <div id="error">您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a href="https://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
                 href="http://firefox.com.cn/download/">Firefox</a>)浏览器查看</div>
