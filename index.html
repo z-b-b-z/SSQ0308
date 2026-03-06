@@ -3,7 +3,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Love-tree</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>SSQ</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jscex@0.6.5/jscex.min.js"></script>
@@ -41,7 +42,7 @@
                         if (progress >= str.length) {
                             clearInterval(timer);
                         }
-                    }, 75);
+                    }, 40);
                 });
                 return this;
             };
@@ -634,6 +635,20 @@
             left: 60px;
             top: 80px;
             position: absolute;
+            overflow: hidden;
+        }
+
+        #text.with-bg::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: url('bg.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.18; /* 背景淡淡的 */
+            z-index: -1;
         }
 
         #code {
@@ -686,41 +701,116 @@
         .space {
             margin-right: 150px;
         }
+
+        /* 手机端横屏适配 */
+        #rotate-tip {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            color: #fff;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                overflow: hidden;
+                background: #000;
+            }
+
+            #wrap {
+                width: 100vw;
+                height: 100vh;
+                margin-top: 0;
+            }
+
+            #canvas {
+                width: 100vw;
+                height: 100vh;
+            }
+
+            #text {
+                left: 20px;
+                top: 20px;
+                width: calc(100vw - 40px);
+                height: auto;
+            }
+
+            #clock-box {
+                left: 20px;
+                top: auto;
+                bottom: 20px;
+            }
+        }
+
+        /* 竖屏时提示用户横屏 */
+        @media screen and (orientation: portrait) and (max-width: 768px) {
+            #rotate-tip {
+                display: flex;
+            }
+
+            #main {
+                display: none;
+            }
+        }
+
+        /* 横屏时正常显示内容 */
+        @media screen and (orientation: landscape) and (max-width: 768px) {
+            #rotate-tip {
+                display: none;
+            }
+
+            #main {
+                display: block;
+            }
+        }
     </style>
 
 </head>
 
 <body>
+    <div id="rotate-tip">为了更好的效果，请把手机横过来观看~</div>
     <div id="main">
         <div id="error">您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a href="https://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
                 href="http://firefox.com.cn/download/">Firefox</a>)浏览器查看</div>
         <div id="wrap">
             <div id="text">
                 <div id="code">
-                    <span class="say">我的公主，</span><br>
-                    <span class="say">牵着你的手，我想一路走到满头白发，</span><br>
-                    <span class="say">然后互相吐槽对方的皱纹太多。</span><br>
-                    <span class="say">我会努力守护你生命里的高光时刻，</span><br>
-                    <span class="say">然后在低谷时，陪你一起吃火锅撸串儿。</span><br>
-                    <span class="say">你的快乐，是我毕生的KPI，</span><br>
-                    <span class="say">达标了还想超额完成。</span><br>
+                    <span class="say">没什么想写的</span><br>
+                    <span class="say">但是空一大块区域也不好</span><br>
+                    <span class="say">那么</span><br>
+                    <span class="say">就愿你找到自己喜欢的频率</span><br>
+                    <span class="say">做自己人生的主角</span><br>
+                    <span class="say">不再追逐别人的节奏</span><br>
                     <br>
-                    <span class="say">每天早晨，我会笑着叫你起床，</span><br>
-                    <span class="say">当然，先得把你的被子抢过来。</span><br>
-                    <span class="say">每天晚上，我会温柔地道晚安，</span><br>
-                    <span class="say">前提是你别再抢我枕头了！</span><br>
+                    <span class="say">人生有快 也有慢</span><br>
+                    <span class="say">不必慌张</span><br>
+                    <span class="say">不管你怎么走</span><br>
+                    <span class="say">都会有人走在你前面</span><br>
+                    <span class="say">也会有人走在你后面</span><br>
                     <br>
-                    <span class="say">我期待这一生跟你一起作伴，</span><br>
-                    <span class="say">变老之后也要继续跟你唠嗑打趣，</span><br>
-                    <span class="say">老到哪儿也去不了，</span><br>
-                    <span class="say">就坐在摇椅上比谁的假牙更亮。</span><br>
+                    <span class="say">在自己的时区里</span><br>
+                    <span class="say">享受正在做的事就好</span><br>
+                    <span class="say">祝你</span><br>
+                    <span class="say">越活越开阔</span><br>
+                    <span class="say">越过越坚定</span><br>
                     <br>
                     
-                    <span class="say"><span class="space"></span> -- Yours, 王子.</span>
+                    <span class="say"> 至此 字数终于凑够了(*^▽^*)) </span>
                 </div>
             </div>
             <div id="clock-box">
-                王子 与 公主 在一起的
+                相识的
                 <div id="clock"></div>
             </div>
             <canvas id="canvas" width="1100" height="680"></canvas>
@@ -862,7 +952,8 @@
 
             var textAnimate = eval(Jscex.compile("async", function () {
                 var together = new Date();
-                together.setFullYear(2010, 5, 8);
+                // JavaScript 中月份从 0 开始，1 表示 2 月
+                together.setFullYear(2025, 1, 2);
                 together.setHours(20);
                 together.setMinutes(20);
                 together.setSeconds(0);
@@ -881,6 +972,9 @@
                 $await(growAnimate());
                 $await(flowAnimate());
                 $await(moveAnimate());
+
+                // 树移动到右侧后再显示文字区域的背景图片
+                $('#text').addClass('with-bg');
 
                 textAnimate().start();
 
