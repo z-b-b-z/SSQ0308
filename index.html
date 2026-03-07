@@ -740,8 +740,8 @@
             </div>
             <canvas id="canvas" width="1100" height="680"></canvas>
         </div>
-        <!-- Add your favorite background music if you want -->
-        <!-- <audio src="love.mp3" autoplay="autoplay"></audio> -->
+        <!-- 点击叮咚后播放背景音乐 -->
+        <audio id="bgm" src="daylight.mp3" loop preload="auto"></audio>
     </div>
 
     <script>
@@ -809,6 +809,8 @@
                 y = e.pageY - offset.top;
                 if (seed.hover(x, y)) {
                     hold = 0;
+                    var bgm = document.getElementById('bgm');
+                    if (bgm) bgm.play().catch(function () {});
                     canvas.unbind("click");
                     canvas.unbind("mousemove");
                     canvas.removeClass('hand');
